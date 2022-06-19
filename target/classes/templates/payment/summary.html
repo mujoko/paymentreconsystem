@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+  <body>
+    <h2>Summary Comparation Information</h2>  
+    <table class="table table-striped" th:object="${summary}">
+      <tr>
+        <th>File Name csv</th>
+        <td><b th:text="*{fileNameSource}"></b></td>       
+        <td><b th:text="*{fileNameTarget}"></b></td>
+      </tr>
+      
+      <tr>
+        <th>Match Source</th>
+        <td th:text="*{matchSource}"></td>
+        <td th:text="*{matchTargete}"></td>
+      </tr>
+      <tr>
+        <th>Unmatch Source</th>
+        <td th:text="*{unmatchSource}"></td>
+        <td th:text="*{unmatchTarget}"></td>
+      </tr>
+      <tr>
+        <th>Total Record Source</th>
+        <td th:text="*{totalRecordSource}"></td>
+        <td th:text="*{totalRecordTarget}"></td>
+      </tr>
+    </table>
+    <a class="btn btn-primary" th:href="@{/reconcile/report/{source}(source=${summary.fileNameSource})}">Get Report Unmatch</a>
+  </body>
+
+</html>

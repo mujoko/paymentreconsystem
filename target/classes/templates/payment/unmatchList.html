@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+
+<body>
+
+<h2>Report</h2>
+
+<div>
+  <a class="btn btn-primary" th:href="@{/reconcile/new}">Get Another Reconciliation</a>
+<table id="owners" class="table table-striped" style="float: left"> 
+  <thead>
+    <tr>
+      <td th:text="${fileName1}"/>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+  <tr>
+    <th style="width: 150px;">Date</th>
+    <th style="width: 200px;">Reference</th>     
+    <th style="width: 120px">Amount</th> 
+   
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="owner : ${listUnmatch}">
+    <td th:text="${owner.createdDate}"/>
+    <td th:text="${owner.walletReference}"/>
+    <td th:text="${owner.amount}"/>
+    <!-- <td><span th:text="${#strings.listJoin(owner.pets, ', ')}"/></td> -->
+  </tr>
+   
+  </tbody>
+</table>
+  
+<table id="owners" class="table table-striped" style="float: left"> 
+  <thead>
+    <tr>
+      <td th:text="${fileName2}"/>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+  <tr>
+    <th style="width: 150px;">Date</th>
+    <th style="width: 200px;">Reference</th>     
+    <th style="width: 120px">Amount</th> 
+   
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="owner : ${listUnmatch2}">
+    <td th:text="${owner.createdDate}"/>
+    <td th:text="${owner.walletReference}"/>
+    <td th:text="${owner.amount}"/>
+    <!-- <td><span th:text="${#strings.listJoin(owner.pets, ', ')}"/></td> -->
+  </tr>
+   
+  </tbody>
+</table>
+</div>
+
+  
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'uploads')}">
+
+<body>
+
+  <h2>Reconciliation Form</h2>
+  
+  <div th:if="${message}"/>
+  <div class="error" id="error\_div">${error}</div>
+</div>
+  <form th:object="${upload}" class="form-horizontal" id="add-upload-form" 
+  th:action="@{/reconcile/new}" method="post" enctype="multipart/form-data">
+  
+  <table class="table  " th:object="${summary}">
+    <tr>
+      <th>Paymentology Data Source</th>
+      <td>  <input type="file" name="fileSource" > </b></td>    
+        
+    </tr>
+    <tr>
+      <th>Client Data Source</th>
+      <td>  <input type="file" name="fileTarget"/> <td> <br/><br/>     
+    </tr>
+    <tr>
+      <td> 
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit">Compare</button>
+        </div> 
+        <td> 
+    </tr>   
+    </div>
+  </table>
+  </form>
+</body>
+</html>
